@@ -53,7 +53,7 @@ export default{
     /* -------------- funzione cerca media in base all'input utente ------------- */
     searchedMedia(){
       
-      store.searchedInputAPIcall = "https://api.themoviedb.org/3/search/movie?api_key=f4c054f1775af08e79e52d3d329cea32&query=" + store.searchInput;
+      store.searchedInputAPIcall = "https://api.themoviedb.org/3/search/multi?api_key=f4c054f1775af08e79e52d3d329cea32&query=" + store.searchInput;
 
       this.APIcall(store.searchedInputAPIcall);
     }

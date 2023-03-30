@@ -67,7 +67,7 @@ export default{
 
     <!-- poster -->
     <div id="media-poster">
-        <img v-if="media.poster_path" :src="'https://image.tmdb.org/t/p/w500' + media.poster_path" alt="poster">
+        <img v-if="media.poster_path" :src="'https://image.tmdb.org/t/p/w342' + media.poster_path" alt="poster">
         <div id="poster-replace" v-else>Copertina non disponibile.</div>
     </div>
 
@@ -93,15 +93,16 @@ export default{
         <!-- lingua -->
         <div id="lenguage">
 
-            <span><strong>Lingua: </strong><span :class="`fi fi-${showFlag()}`"></span></span>
-            
+            <span v-if="showFlag() != ''"><strong>Lingua: </strong><span :class="`fi fi-${showFlag()}`"></span></span>
+            <span v-else><strong>Lingua: </strong>Unknown</span>
+
 
         </div>
 
         <!-- voto -->
         <div id="vote">
 
-            <span><strong>Voto: </strong>{{ media.vote_average.toFixed(1) }}</span>
+            <span><strong>Voto: </strong>{{ (media.vote_average.toFixed(1) / 2).toFixed(1) }}</span>
 
         </div>
 

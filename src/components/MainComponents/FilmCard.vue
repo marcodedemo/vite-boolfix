@@ -14,6 +14,7 @@ export default{
   data(){
     return{
         store,
+        
 
         
     }
@@ -53,7 +54,14 @@ export default{
         }
 
         return languageAlphaCode;
-    }
+    },
+
+    showFilledStars(){
+        let filmVotes = parseInt((this.media.vote_average / 2).toFixed());
+
+        return filmVotes;
+
+    },
   }
 
 }
@@ -101,8 +109,10 @@ export default{
 
         <!-- voto -->
         <div id="vote">
-
-            <span><strong>Voto: </strong>{{ (media.vote_average.toFixed(1) / 2).toFixed(1) }}</span>
+            
+            <span><strong>Voto: </strong><i v-for="vote in showFilledStars()" class="fa-solid fa-star"></i></span>
+            <span><i v-for="n in (5-showFilledStars())" class="fa-regular fa-star"></i></span>
+            
 
         </div>
 

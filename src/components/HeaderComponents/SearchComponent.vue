@@ -41,6 +41,33 @@ export default{
     align-items: center;
     gap: 10px;
 
-    padding: 50px 0 0;
+    input{
+      width: auto;
+      height: 30px;
+      padding: 0 5px;
+
+      border: 1px solid white;
+      border-radius: 8px;
+
+      outline: none;
+
+      &:focus{
+        outline: 1px solid red;
+        border: 1px solid red;
+
+      }
+    }
+
+    button{
+      padding: 6px;
+
+      border: 1px solid white;
+      border-radius: 8px;
+
+      &:hover{
+        border: 1px solid red;
+        background-color: hsla(0, 100%, 50%, 0.300);
+      }
+    }
   }
 </style>

@@ -26,9 +26,19 @@ export default{
 <template>
 <header>
 
-    
-  <SearchComponent @user-search="$emit('userSearch')"></SearchComponent>
+  <div id="container" class="centered">
 
+    <!-- header logo -->
+    <div id="header-logo">
+      <img src="../../public/img/logo.png" alt="boolfix logo">
+    </div>
+    
+    <!-- header search -->
+    <div id="search">
+      <SearchComponent @user-search="$emit('userSearch')"></SearchComponent>
+    </div>
+    
+  </div>
 </header>
 </template>
 
@@ -36,6 +46,18 @@ export default{
 /* ---------------------------------- style --------------------------------- */
 <style lang="scss" scoped>
 
+#container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  #header-logo{
+    width: 200px;
+
+    img{
+      width: 100%;
+    }
+  }
+}
 
 </style>

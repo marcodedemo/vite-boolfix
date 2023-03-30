@@ -51,8 +51,11 @@ export default{
   justify-content: space-between;
   align-items: center;
 
+  padding-top: 10px;
+
   #header-logo{
-    width: 200px;
+    width: 250px;
+
 
     img{
       width: 100%;

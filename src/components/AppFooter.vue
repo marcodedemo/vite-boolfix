@@ -2,27 +2,13 @@
 /* --------------------------------- script --------------------------------- */
 <script >
 
-import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
-import AppFooter from './components/AppFooter.vue';
-
-
 export default{
+  name:"AppFooter",
+
   data(){
     return{
 
     }
-  },
-
-  components:{
-    AppHeader,
-    AppMain,
-    AppFooter,
-
-  },
-
-  created() {
-    
   },
 
 }
@@ -34,9 +20,7 @@ export default{
 <template>
 <div>
 
-  <AppHeader></AppHeader>
-  <AppMain></AppMain>
-  <AppFooter></AppFooter>
+    
 
 </div>
 </template>

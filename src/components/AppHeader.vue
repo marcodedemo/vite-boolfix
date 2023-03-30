@@ -3,6 +3,8 @@
 <script >
 
 export default{
+  name:"AppHeader",
+
   data(){
     return{
 
@@ -16,15 +18,18 @@ export default{
 /* -------------------------------- template -------------------------------- */
 
 <template>
-<div>
+<header>
 
-  
 
-</div>
+
+
+</header>
 </template>
 
 
 /* ---------------------------------- style --------------------------------- */
 <style lang="scss" scoped>
+
+
 
 </style>

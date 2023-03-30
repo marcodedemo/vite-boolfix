@@ -2,6 +2,8 @@
 /* --------------------------------- script --------------------------------- */
 <script >
 
+import SearchComponent from './HeaderComponents/SearchComponent.vue';
+
 export default{
   name:"AppHeader",
 
@@ -10,6 +12,10 @@ export default{
 
     }
   },
+
+  components:{
+    SearchComponent,
+  }
 
 }
 
@@ -20,8 +26,8 @@ export default{
 <template>
 <header>
 
-
-
+    
+  <SearchComponent @user-search="$emit('userSearch')"></SearchComponent>
 
 </header>
 </template>

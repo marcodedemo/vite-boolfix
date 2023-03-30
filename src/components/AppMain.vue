@@ -2,6 +2,8 @@
 /* --------------------------------- script --------------------------------- */
 <script >
 
+import MediaElement from './MainComponents/MediaElement.vue';
+
 export default{
   name:"AppMain",
 
@@ -10,6 +12,11 @@ export default{
 
     }
   },
+
+  components:{
+    MediaElement
+  },
+  
 
 }
 
@@ -20,7 +27,7 @@ export default{
 <template>
 <div>
 
-  
+  <MediaElement></MediaElement>
 
 </div>
 </template>

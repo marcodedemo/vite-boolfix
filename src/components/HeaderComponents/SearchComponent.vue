@@ -25,6 +25,7 @@ export default{
 <div id="container" class="centered">
 
   <input type="text" v-model="store.searchInput" placeholder="Cerca il tuo titolo!" @keyup.enter="$emit('userSearch')">
+
   <button @click="$emit('userSearch')">Cerca</button>
     
 
@@ -42,7 +43,7 @@ export default{
     gap: 10px;
 
     input{
-      width: auto;
+      width: 300px;
       height: 30px;
       padding: 0 5px;
 
@@ -59,7 +60,7 @@ export default{
     }
 
     button{
-      padding: 6px;
+      padding: 6px 10px;
 
       border: 1px solid white;
       border-radius: 8px;

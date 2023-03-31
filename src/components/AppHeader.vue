@@ -4,11 +4,15 @@
 
 import SearchComponent from './HeaderComponents/SearchComponent.vue';
 
+import {store} from '../store.js';
+
 export default{
   name:"AppHeader",
 
   data(){
     return{
+
+      store,
 
       headerLinks:[
         "Home",
@@ -21,6 +25,19 @@ export default{
 
   components:{
     SearchComponent,
+  },
+
+  methods:{
+
+    // funzione che cambia l'indice di visualizzazione delle sezioni
+    changeSectionIndex(index){
+
+      this.store.activeSectionIndex = index;
+
+      
+
+    }
+
   }
 
 }
@@ -39,12 +56,15 @@ export default{
 
       <!-- header logo -->
       <div id="header-logo">
-        <img src="../../public/img/logo.png" alt="boolfix logo">
+        <a href="#" @click="store.activeSectionIndex = 0">
+          <img src="../../public/img/logo.png" alt="boolfix logo">
+        </a>
       </div>
       
       <div id="header-links">
         <ul id="links">
-          <li v-for="link in this.headerLinks"><a href="#">{{ link }}</a></li>
+          <li v-for="(link, index) in this.headerLinks" @click="$emit('userChangeSection')">
+            <a @click="changeSectionIndex(index)" href="#">{{ link }}</a></li>
         </ul>
       </div>
 
@@ -84,6 +104,7 @@ export default{
   align-items: center;
 
   padding: 10px 0;
+
 
 
   #header-left-side{
@@ -150,7 +171,7 @@ export default{
       #notifications-number{
         position: absolute;
         top: 8px;
-        right: -8px;
+        right: -9px;
 
         display: flex;
         justify-content: center;

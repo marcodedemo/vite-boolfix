@@ -22,10 +22,23 @@ export const store = reactive({
     seriesSearchedInputAPIcall:"",
 
     // booleana per il controllo del caricamento della risposta dell' API
-    isLoading: false,
+    isLoading: true,
 
     // input di ricerca 
     searchInput:"",
+
+    // indice di visualizzazione delle sezioni
+    activeSectionIndex: 0,
+
+    // indice di visualizzazione dei films
+    filmsSlideMinIndex:0,
+    filmsSlideMaxIndex:4,
+
+    // indice di visualizzazione dei series
+    seriesSlideMinIndex:0,
+    seriesSlideMaxIndex:4,
+
+    mediaToSearch:'0',
 
 });
 

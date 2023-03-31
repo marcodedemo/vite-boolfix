@@ -12,8 +12,6 @@ export default{
     return{
       store,
 
-      slideMinIndex:0,
-      slideMaxIndex:5,
     }
   },
 
@@ -24,7 +22,7 @@ export default{
   methods:{
 
     showFilms(index){
-      if(index > this.slideMinIndex && index <= this.slideMaxIndex){
+      if(index >= this.store.filmsSlideMinIndex && index <= this.store.filmsSlideMaxIndex){
         return true;
       }
     },
@@ -32,33 +30,33 @@ export default{
     showNextFilm(){
 
       // se l'index massimo è compreso tra la lunghezza dell'array di film e la lunghezza dell'array +4 (in caso ci fossero 6-11-16 film)
-      if(this.slideMaxIndex >= store.films.length && this.slideMaxIndex <= store.films.length + 4){
+      if(this.store.filmsSlideMaxIndex >= store.films.length - 1){
 
       // gli indici massimo e minimo rimangono invariati
-      this.slideMinIndex = this.slideMinIndex;
-      this.slideMaxIndex = this.slideMaxIndex;
+      this.store.filmsSlideMinIndex = this.store.filmsSlideMinIndex;
+      this.store.filmsSlideMaxIndex = this.store.filmsSlideMaxIndex;
       // altrimenti
       }else{
 
       // gli indici massimo e minimo aumentano di 5
-      this.slideMinIndex +=5;
-      this.slideMaxIndex +=5;
+      this.store.filmsSlideMinIndex +=5;
+      this.store.filmsSlideMaxIndex +=5;
 }
     },
 
     showPrevFilm(){
 
-      if(this.slideMinIndex == 0){
+      if(this.store.filmsSlideMinIndex == 0){
 
       // gli indici massimo e minimo rimangono invariati
-      this.slideMinIndex = this.slideMinIndex;
-      this.slideMaxIndex = this.slideMaxIndex;
+      this.store.filmsSlideMinIndex = this.store.filmsSlideMinIndex;
+      this.store.filmsSlideMaxIndex = this.store.filmsSlideMaxIndex;
 
       // altrimenti
       }else{
       // gli indici massimo e minimo diminuiscono di 5
-      this.slideMinIndex -=5;
-      this.slideMaxIndex -=5;
+      this.store.filmsSlideMinIndex -=5;
+      this.store.filmsSlideMaxIndex -=5;
 }
     }
     
@@ -77,16 +75,19 @@ export default{
 
     <MediaItem v-for="(film, index) in store.films" :media="film" v-show="showFilms(index)"></MediaItem>
 
-    <div id="right" @click="showNextFilm()">
-      <i class="fa-solid fa-chevron-right"></i>
-    </div>
+    <div id="arrows" v-if="store.activeSectionIndex == 0">
 
-    <div id="left" @click="showPrevFilm()">
-      <i class="fa-solid fa-chevron-left"></i>
+      <div id="right" @click="showNextFilm()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      
+      <div id="left" @click="showPrevFilm()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </div>
+      
     </div>
-
+    
   </div>
-
     
 
 </div>

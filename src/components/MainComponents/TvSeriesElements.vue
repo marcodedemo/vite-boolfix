@@ -2,7 +2,6 @@
 /* --------------------------------- script --------------------------------- */
 <script >
 
-import { getInnerRange } from '@vue/compiler-core';
 import {store} from '../../store.js';
 import MediaItem from './MediaItem.vue';
 
@@ -13,8 +12,6 @@ export default{
     return{
       store,
 
-      slideMinIndex:0,
-      slideMaxIndex:5,
     }
   },
 
@@ -26,7 +23,7 @@ export default{
 
     // funzione per mostrare nel dom solo 5 serie alla volta
     showSeries(index){
-      if(index > this.slideMinIndex && index <= this.slideMaxIndex){
+      if(index >= this.store.seriesSlideMinIndex && index <= this.store.seriesSlideMaxIndex){
         return true;
       }
     },
@@ -35,17 +32,18 @@ export default{
     showNextSeries(){
 
       // se l'index massimo è compreso tra la lunghezza dell'array di serie e la lunghezza dell'array +4 (in caso ci fossero 6-11-16 serie)
-      if(this.slideMaxIndex >= store.series.length && this.slideMaxIndex <= store.series.length + 4){
+      if(this.store.seriesSlideMaxIndex >= store.series.length -1 ){
 
         // gli indici massimo e minimo rimangono invariati
-        this.slideMinIndex = this.slideMinIndex;
-        this.slideMaxIndex = this.slideMaxIndex;
+        this.store.seriesSlideMinIndex = this.store.seriesSlideMinIndex;
+        this.store.seriesSlideMaxIndex = this.store.seriesSlideMaxIndex;
+
       // altrimenti
       }else{
 
         // gli indici massimo e minimo aumentano di 5
-        this.slideMinIndex +=5;
-        this.slideMaxIndex +=5;
+        this.store.seriesSlideMinIndex +=5;
+        this.store.seriesSlideMaxIndex +=5;
       }
 
     },
@@ -53,17 +51,17 @@ export default{
     // funzione che stampa le precedenti 5 serie
     showPrevSeries(){
       
-      if(this.slideMinIndex == 0){
+      if(this.store.seriesSlideMinIndex == 0){
 
         // gli indici massimo e minimo rimangono invariati
-        this.slideMinIndex = this.slideMinIndex;
-        this.slideMaxIndex = this.slideMaxIndex;
+        this.store.seriesSlideMinIndex = this.store.seriesSlideMinIndex;
+        this.store.seriesSlideMaxIndex = this.store.seriesSlideMaxIndex;
 
       // altrimenti
       }else{
         // gli indici massimo e minimo diminuiscono di 5
-        this.slideMinIndex -=5;
-        this.slideMaxIndex -=5;
+        this.store.seriesSlideMinIndex -=5;
+        this.store.seriesSlideMaxIndex -=5;
       }
 
     }
@@ -83,12 +81,16 @@ export default{
 
     <MediaItem v-for="(serie,index) in store.series" :media="serie" v-show="showSeries(index)"></MediaItem>
 
-    <div id="right" @click="showNextSeries()">
-      <i class="fa-solid fa-chevron-right"></i>
-    </div>
+    <div id="arrows" v-if="store.activeSectionIndex == 0">
 
-    <div id="left" @click="showPrevSeries()">
-      <i class="fa-solid fa-chevron-left"></i>
+      <div id="right" @click="showNextSeries()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      
+      <div id="left" @click="showPrevSeries()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </div>
+      
     </div>
 
   </div>

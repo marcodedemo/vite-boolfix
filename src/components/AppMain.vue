@@ -5,13 +5,15 @@
 import FilmElements from './MainComponents/FilmElements.vue';
 import TvSeriesElements from './MainComponents/TvSeriesElements.vue';
 
+import {store} from '../store.js';
+
 
 export default{
   name:"AppMain",
 
   data(){
     return{
-
+      store,
     }
   },
 
@@ -32,7 +34,7 @@ export default{
 
   <main class="centered">
 
-    <div id="films">
+    <div id="films" v-show="store.activeSectionIndex == 0 || store.activeSectionIndex == 2">
 
       
       <h2>Films</h2>
@@ -40,7 +42,7 @@ export default{
       
     </div>
 
-    <div id="series">
+    <div id="series" v-show="store.activeSectionIndex == 0 || store.activeSectionIndex == 1">
 
       <h2>Tv Series</h2>
       <TvSeriesElements></TvSeriesElements>

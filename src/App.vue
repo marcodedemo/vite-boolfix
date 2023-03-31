@@ -28,7 +28,7 @@ export default{
 
   created() {
     
-    this.APIcall(store.APIbaseCall);
+    this.APIcall(store.APIfilmBaseCall, store.APIseriesBaseCall);
 
   },
 
@@ -36,26 +36,38 @@ export default{
 
 
     /* ---------------------------- funzione API call --------------------------- */
-    APIcall(APIadress){
+    APIcall(APIfilmAdress, APIseriesAdress){
 
       // eseguo la chiamata all'API
-      axios.get(APIadress).then((res)=>{
+      axios.get(APIfilmAdress).then((res)=>{
 
       // imposto l'array dei film = all'array dei film generati dall'API
-      store.medias = res.data.results;
+      store.films = res.data.results;
 
-      console.log(store.medias)
+      console.log(store.films);
+      }),
+
+      // eseguo la chiamata all'API
+      axios.get(APIseriesAdress).then((res)=>{
+
+      // imposto l'array dei film = all'array dei film generati dall'API
+      store.series = res.data.results;
+
+      console.log(store.series)
 
     })
+  
 
     },
 
     /* -------------- funzione cerca media in base all'input utente ------------- */
     searchedMedia(){
       
-      store.searchedInputAPIcall = "https://api.themoviedb.org/3/search/multi?api_key=f4c054f1775af08e79e52d3d329cea32&query=" + store.searchInput;
+      store.filmSearchedInputAPIcall = "https://api.themoviedb.org/3/search/movie?api_key=f4c054f1775af08e79e52d3d329cea32&query=" + store.searchInput;
 
-      this.APIcall(store.searchedInputAPIcall);
+      store.seriesSearchedInputAPIcall = "https://api.themoviedb.org/3/search/tv?api_key=f4c054f1775af08e79e52d3d329cea32&query=" + store.searchInput;
+
+      this.APIcall(store.filmSearchedInputAPIcall, store.seriesSearchedInputAPIcall);
     }
   }
 

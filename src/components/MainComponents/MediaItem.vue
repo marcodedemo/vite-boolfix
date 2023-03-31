@@ -9,7 +9,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 
 export default{
-  name:"FilmCard",
+  name:"MediaItem",
 
   data(){
     return{
@@ -113,7 +113,7 @@ export default{
         <div id="vote">
             
             <span><strong>Voto: </strong><i v-for="vote in showFilledStars()" class="fa-solid fa-star"></i></span>
-            <span><i v-for="n in (5-showFilledStars())" class="fa-regular fa-star"></i></span>
+            <span><i v-for="n in (5 - showFilledStars())" class="fa-regular fa-star"></i></span>
             
         </div>
 
@@ -139,7 +139,7 @@ export default{
 
     position: relative;
 
-    width: calc(100% / 4 - 20px * 5 / 6);
+    width: calc(100% / 5 - 20px * 5 / 6);
     height: 400px;
 
 

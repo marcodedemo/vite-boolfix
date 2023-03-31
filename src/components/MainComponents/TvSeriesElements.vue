@@ -3,10 +3,10 @@
 <script >
 
 import {store} from '../../store.js';
-import FilmCard from './FilmCard.vue';
+import MediaItem from './MediaItem.vue';
 
 export default{
-  name:"SearchComponent",
+  name:"FilmElements",
 
   data(){
     return{
@@ -15,8 +15,8 @@ export default{
   },
 
   components:{
-    FilmCard,
-  }
+    MediaItem,
+}
 
 }
 
@@ -27,9 +27,9 @@ export default{
 <template>
 <div id="container">
 
-  <div id="media-container" class="centered">
+  <div id="media-container">
 
-    <FilmCard v-for="media in store.medias" :media="media"></FilmCard>
+    <MediaItem v-for="media in store.series" :media="media"></MediaItem>
   </div>
 
     
@@ -40,10 +40,6 @@ export default{
 
 /* ---------------------------------- style --------------------------------- */
 <style lang="scss" scoped>
-
-  #container{
-    margin: 50px 0;
-  }
 
   #media-container{
     display: flex;

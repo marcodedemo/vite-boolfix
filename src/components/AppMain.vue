@@ -2,7 +2,9 @@
 /* --------------------------------- script --------------------------------- */
 <script >
 
-import MediaElement from './MainComponents/MediaElement.vue';
+import FilmElements from './MainComponents/FilmElements.vue';
+import TvSeriesElements from './MainComponents/TvSeriesElements.vue';
+
 
 export default{
   name:"AppMain",
@@ -14,7 +16,8 @@ export default{
   },
 
   components:{
-    MediaElement
+    FilmElements,
+    TvSeriesElements,
   },
   
 
@@ -27,7 +30,24 @@ export default{
 <template>
 <div>
 
-  <MediaElement></MediaElement>
+  <main class="centered">
+
+    <div id="films">
+
+      
+      <h2>Films</h2>
+      <FilmElements></FilmElements>
+      
+    </div>
+
+    <div id="series">
+
+      <h2>Tv Series</h2>
+      <TvSeriesElements></TvSeriesElements>
+      
+    </div>
+
+  </main>
 
 </div>
 </template>
@@ -36,4 +56,18 @@ export default{
 /* ---------------------------------- style --------------------------------- */
 <style lang="scss" scoped>
 
+  main{
+
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    margin-top: 30px;
+
+    h2{
+      font-size: 3em;
+      text-align: center;
+    }
+    
+  }
 </style>

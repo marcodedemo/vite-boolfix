@@ -65,8 +65,9 @@ export default{
     margin-top: 30px;
 
     h2{
-      font-size: 3em;
+      font-size: 2em;
       text-align: center;
+      padding-bottom: 10px;
     }
     
   }

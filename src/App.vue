@@ -97,7 +97,7 @@ export default{
           store.films = res.data.results;
 
           // imposto la booleana di visulizzazione dell'elemento not-found a false
-          this.store.seriesNotFound = false;
+          this.store.filmsNotFound = false;
 
         // altrimenti
         }else{
@@ -106,10 +106,11 @@ export default{
           this.store.filmsNotFound = true;
         }
         
+        // rimovo la schermata di caricamento
+        this.store.isLoading = false;
+
       });
 
-      // rimovo la schermata di caricamento
-      this.store.isLoading = false;
 
     },
 
@@ -158,7 +159,7 @@ export default{
     searchedMedia(){
       
       // se l'input di ricerca non è vuoto
-      if(store.searchInput != ''){
+      if(store.searchInput != '' && store.searchInput != ' '){
         
         // se la sezione da visualizzare è quella dei film
         if(this.store.activeSectionIndex == 2){

@@ -110,12 +110,12 @@ export default{
         </div>
 
         <!-- voto -->
-        <div id="vote">
+        <!-- <div id="vote">
             
             <span><strong>Voto: </strong><i v-for="vote in showFilledStars()" class="fa-solid fa-star"></i></span>
             <span><i v-for="n in (5 - showFilledStars())" class="fa-regular fa-star"></i></span>
             
-        </div>
+        </div> -->
 
         <!-- overview -->
         <div id="overview">

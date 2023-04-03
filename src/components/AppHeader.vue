@@ -56,7 +56,7 @@ export default{
 
       <!-- header logo -->
       <div id="header-logo">
-        <a href="#" @click="store.activeSectionIndex = 0">
+        <a href="#">
           <img src="../../public/img/logo.png" alt="boolfix logo">
         </a>
       </div>

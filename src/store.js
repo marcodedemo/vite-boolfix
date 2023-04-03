@@ -40,6 +40,14 @@ export const store = reactive({
 
     mediaToSearch:'0',
 
+    // indici corrispondenti alla pagina attiva dei film e delle serie
+    filmsActivePage:1,
+    seriesActivePage:1,
+
+    // booleani per la visualizzazione del messaggio di ricerca fallita
+    filmsNotFound: false,
+    seriesNotFound:false,
+
 });
 
 

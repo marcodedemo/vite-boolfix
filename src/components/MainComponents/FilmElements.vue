@@ -38,7 +38,7 @@ export default{
     showNextFilm(){
 
       // se l'index massimo è maggiore o uguale a 19
-      if(this.store.filmsSlideMaxIndex >= this.store.films.length - 1){
+      if(this.store.filmsSlideMaxIndex >= 19){
 
       // gli indici massimo e minimo rimangono invariati e blocco lo scroll dei film
       this.store.filmsSlideMinIndex = this.store.filmsSlideMinIndex;

@@ -53,34 +53,32 @@ export default{
             
             // inserisco nell'array gli elementi generati
             store.films.push(res.data.results[y]);
-            
           }
           
         })
         
       }
-
+      
       // ciclo per le serie
       for (let i = 1; i <= 5; i++) {
         
         // eseguo la chiamata all'API
         axios.get(APIseriesAdress + "&page=" + i).then((res)=>{
-
+          
           
           for (let y = 0; y < res.data.results.length; y++) {
             
             // inserisco nell'array gli elementi generati
             store.series.push(res.data.results[y]);
-            
           }
           
         })
         
       }
-
+      
       // rimovo la schermata di caricamento
       this.store.isLoading= false;
-
+    
 
     },
 

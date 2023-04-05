@@ -40,7 +40,7 @@ export default{
     showNextSeries(){
 
       // se l'index massimo è maggiore o uguale a 
-      if(this.store.seriesSlideMaxIndex >= this.store.series.length - 1){
+      if(this.store.seriesSlideMaxIndex >= 19){
 
         // gli indici massimo e minimo rimangono invariati e fermo lo scroll delle serie
         this.store.seriesSlideMinIndex = this.store.seriesSlideMinIndex;
